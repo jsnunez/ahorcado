@@ -89,7 +89,7 @@ public class Main {
      //       System.out.println(letras);
         }
         System.out.println(oculta);
-
+        System.out.println("letras usadas"+letras);
        }
 
        }
