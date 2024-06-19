@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
          int aleatorio = (int)Math.floor(Math.random()*10);
-       System.out.println(aleatorio);
+      // System.out.println(aleatorio);
        ArrayList<String> palabras = new ArrayList<>();
        ArrayList<String> oculta = new ArrayList<>();
        ArrayList<String> letras = new ArrayList<>();
@@ -28,14 +28,14 @@ public class Main {
        }*/
      
        String elemento = palabras.get(aleatorio);
-       System.out.println(elemento);
+       // System.out.println(elemento);
         int contador=0;
         int vidas=3;
        int longitud = elemento.length();
-       System.out.println(longitud);
+     //  System.out.println(longitud);
        String[] separado = elemento.split("");
        ArrayList<String> separados = new ArrayList<String>(Arrays.asList(separado));
-       System.out.println(separados);
+      // System.out.println(separados);
 
        for (int i=1;i<=longitud;i++){
         oculta.add("_");
@@ -52,19 +52,29 @@ public class Main {
             }
        System.out.println("Ingrese una letra");
        String letra =sc.nextLine();
-       letras.add(letra);
-       System.out.println(letra);
+      
+      // System.out.println(letra);
        int x =separados.indexOf(letra);
-       System.out.println(x); 
+      // System.out.println(x); 
+        int s=letras.indexOf(letra);
         
+
        if (x==-1 ) {
-        if (letras.indexOf(letra)>=0) {
+        letras.add(letra);
+        if (s>=0) {
+        //    System.out.println(s);
+      //      System.out.println(letras);
             System.out.println("la letra esta repetida");
             vidas++;
         }
         vidas--;
         System.out.println("Tienes "+vidas+ " vidas");
+        if (vidas==0) {
+            System.out.println("perdiste");
+        }
+    
        }else{
+        letras.add(letra);
         while (x>=0) {
             
             x=separados.indexOf(letra);
@@ -74,14 +84,16 @@ public class Main {
             contador++;
             oculta.set(x, letra);
             separados.set(x,"_");
-            System.out.println(oculta);
-            System.out.println(letras);
-        }
   
+       
+     //       System.out.println(letras);
+        }
+        System.out.println(oculta);
+
        }
 
        }
-       System.out.println("perdiste");
+
     }
 
 
